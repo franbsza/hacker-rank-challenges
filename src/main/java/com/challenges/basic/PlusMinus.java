@@ -30,18 +30,6 @@ import java.util.List;
 
 public class PlusMinus {
 
-    public static void executeTest(){
-        List<Integer> arr = new ArrayList<>();
-        arr.add(-4);
-        arr.add(3);
-        arr.add(-9);
-        arr.add(0);
-        arr.add(4);
-        arr.add(1);
-
-        solveQuestion(arr);
-    }
-
     public static void solveQuestion(List<Integer> arr){
 
         arr.size();

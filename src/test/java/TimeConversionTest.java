@@ -38,7 +38,6 @@ public class TimeConversionTest {
 
         timeConversion.solveQuestion(s);
 
-
         assertThat(sysOut.asString(), containsString("12:01:00"));
     }
 
@@ -47,7 +46,6 @@ public class TimeConversionTest {
         String s = "12:01:00AM";
 
         timeConversion.solveQuestion(s);
-
 
         assertThat(sysOut.asString(), containsString("00:01:00"));
     }
