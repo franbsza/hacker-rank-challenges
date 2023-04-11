@@ -25,7 +25,6 @@ package com.challenges.basic;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.ArrayList;
 import java.util.List;
 
 public class PlusMinus {
