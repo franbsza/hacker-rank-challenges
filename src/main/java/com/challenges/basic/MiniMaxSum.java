@@ -1,22 +1,21 @@
-package com.challenges.basic;
+/*
+Given five positive integers, find the minimum and maximum values that can be calculated by summing exactly four of the five integers. Then print the respective minimum and maximum values as a single line of two space-separated long integers.
 
-import java.util.ArrayList;
+Example
+arr = [1,3,5,7,9]
+
+The minimum sum is 1+3+5+7 = 16 and the maximum sum is 3+5+7+9 = 24.
+The function prints
+    16 24
+
+ */
+
+package com.challenges.basic;
 import java.util.List;
 
 public class MiniMaxSum {
 
-    public static void executeTest(){
-        ArrayList<Integer> arr = new ArrayList<Integer>(5);
-        arr.add(256741038);
-        arr.add(623958417);
-        arr.add(467905213);
-        arr.add(714532089);
-        arr.add(938071625);
-
-        MiniMaxSum.solveQuestion(arr);
-    }
-
-    static void solveQuestion(List<Integer> arr){
+    public static void solveQuestion(List<Integer> arr){
         long a = 0;
         long b = 0;
         long c = 0;
