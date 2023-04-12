@@ -15,7 +15,7 @@ import java.util.List;
 
 public class MiniMaxSum {
 
-    public static void solveQuestion(List<Integer> arr){
+    public void solveQuestion(List<Integer> arr){
         long a = 0;
         long b = 0;
         long c = 0;

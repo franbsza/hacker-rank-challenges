@@ -17,7 +17,7 @@ Return '00:01:00'
 
 public class TimeConversion {
 
-    public static void solveQuestion(String time){
+    public void solveQuestion(String time){
         String init = time.substring(0,2);
         String end = time.substring(8,10);
         String timeNew = "";

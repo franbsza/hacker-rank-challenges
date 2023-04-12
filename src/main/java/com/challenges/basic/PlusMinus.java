@@ -29,9 +29,8 @@ import java.util.List;
 
 public class PlusMinus {
 
-    public static void solveQuestion(List<Integer> arr){
+    public void solveQuestion(List<Integer> arr){
 
-        arr.size();
         double countPos = 0;
         double countNeg = 0;
         double countZero = 0;
