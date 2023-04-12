@@ -9,7 +9,7 @@ public class SystemOutResource extends ExternalResource {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     @Override
-    protected void before() throws Throwable {
+    protected void before(){
         sysOut = System.out;
         System.setOut(new PrintStream(outContent));
     }

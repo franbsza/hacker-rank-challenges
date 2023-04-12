@@ -9,8 +9,8 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.assertThat;
-import static org.junit.matchers.JUnitMatchers.containsString;
+import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 @RunWith(MockitoJUnitRunner.class)
 public class MiniMaxSumTest {
@@ -28,7 +28,7 @@ public class MiniMaxSumTest {
 
     @Test
     public void solveQuestionOne(){
-        ArrayList<Integer> arr = new ArrayList<Integer>(5);
+        ArrayList<Integer> arr = new ArrayList<>(5);
         arr.add(256741038);
         arr.add(623958417);
         arr.add(467905213);
