@@ -25,15 +25,17 @@ package com.challenges.basic;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PlusMinus {
 
-    public void solveQuestion(List<Integer> arr){
+    public List<BigDecimal> solveQuestion(List<Integer> arr){
 
         double countPos = 0;
         double countNeg = 0;
         double countZero = 0;
+        List<BigDecimal> result = new ArrayList<>();
 
         for(int n : arr){
             if(n > 0){
@@ -59,8 +61,10 @@ public class PlusMinus {
                 countZero / arr.size())
                 .setScale(6, RoundingMode.HALF_DOWN);
 
-        System.out.println(taxPos);
-        System.out.println(taxNeg);
-        System.out.println(taxZero);
+        result.add(taxZero);
+        result.add(taxNeg);
+        result.add(taxPos);
+
+        return result;
     }
 }

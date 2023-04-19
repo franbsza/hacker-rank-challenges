@@ -1,31 +1,25 @@
 import com.challenges.basic.ReversedArray;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
-import org.mockito.MockitoAnnotations;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.Mock;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.hamcrest.MatcherAssert.assertThat;
-
-@RunWith(MockitoJUnitRunner.class)
 public class ReversedArrayTest {
 
     @InjectMocks
     ReversedArray reversedArray;
 
-    @Before
+    @Mock
+    List<Integer> arr;
+
+    @BeforeEach
     public void setup(){
-        MockitoAnnotations.initMocks(this);
+        reversedArray = new ReversedArray();
     }
-
-    @Rule public SystemOutResource sysOut = new SystemOutResource();
-
 
     @Test
     public void solveQuestion(){
@@ -35,8 +29,8 @@ public class ReversedArrayTest {
         arr.add(5);
         arr.add(1);
 
-        reversedArray.solveQuestion(arr);
+        String res = reversedArray.solveQuestion(arr);
 
-        assertThat(sysOut.asString() , containsString("1 5 6 11"));
+        Assertions.assertEquals("1 5 6 11" , res);
     }
 }

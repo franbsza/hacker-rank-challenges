@@ -4,7 +4,7 @@ import java.util.List;
 
 public class ReversedArray {
 
-    public void solveQuestion(List<Integer> arr){
+    public String solveQuestion(List<Integer> arr){
             StringBuilder s = new StringBuilder();
 
             for(int i = arr.size()-1; i > 0; i--){
@@ -14,6 +14,8 @@ public class ReversedArray {
                 s.append(arr.get(0));
             }
 
-        System.out.println(s);
+            String res = s.toString();
+
+        return res;
     }
 }

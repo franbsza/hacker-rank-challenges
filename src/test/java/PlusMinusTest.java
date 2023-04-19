@@ -1,31 +1,23 @@
 import com.challenges.basic.PlusMinus;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
-import org.mockito.MockitoAnnotations;
-import org.mockito.junit.MockitoJUnitRunner;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.hamcrest.MatcherAssert.assertThat;
-
-@RunWith(MockitoJUnitRunner.class)
 public class PlusMinusTest {
 
     @InjectMocks
     PlusMinus plusMinus;
 
-    @Before
+    @BeforeEach
     public void setup(){
-        MockitoAnnotations.initMocks(this);
+        plusMinus = new PlusMinus();
     }
-
-    @Rule
-    public SystemOutResource sysOut = new SystemOutResource();
 
     @Test
     public void solveQuestionOne(){
@@ -37,13 +29,13 @@ public class PlusMinusTest {
         arr.add(4);
         arr.add(1);
 
-        plusMinus.solveQuestion(arr);
-        assertThat(sysOut.asString(),
-                containsString(
-                "0.500000\n" +
-                        "0.333333\n" +
-                        "0.166667"));
+        List<BigDecimal> expectedResult = new ArrayList<>();
+        expectedResult.add(BigDecimal.valueOf(0.166667).setScale(6, RoundingMode.HALF_DOWN));
+        expectedResult.add(BigDecimal.valueOf(0.333333).setScale(6, RoundingMode.HALF_DOWN));
+        expectedResult.add(BigDecimal.valueOf(0.500000).setScale(6, RoundingMode.HALF_DOWN));
 
+        List<BigDecimal> result = plusMinus.solveQuestion(arr);
+        Assertions.assertEquals(expectedResult, result);
     }
 
     @Test
@@ -56,12 +48,12 @@ public class PlusMinusTest {
         arr.add(-4);
         arr.add(0);
 
-        plusMinus.solveQuestion(arr);
-        assertThat(sysOut.asString(),
-                containsString(
-                        "0.166667\n" +
-                                "0.666667\n" +
-                                "0.166667"));
+        List<BigDecimal> expectedResult = new ArrayList<>();
+        expectedResult.add(BigDecimal.valueOf(0.166667).setScale(6, RoundingMode.HALF_DOWN));
+        expectedResult.add(BigDecimal.valueOf(0.666667).setScale(6, RoundingMode.HALF_DOWN));
+        expectedResult.add(BigDecimal.valueOf(0.166667).setScale(6, RoundingMode.HALF_DOWN));
 
+        List<BigDecimal> result = plusMinus.solveQuestion(arr);
+        Assertions.assertEquals(expectedResult, result);
     }
 }

@@ -1,52 +1,39 @@
 import com.challenges.basic.TimeConversion;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
-import org.mockito.MockitoAnnotations;
-import org.mockito.junit.MockitoJUnitRunner;
-import static org.hamcrest.CoreMatchers.*;
-import static org.hamcrest.MatcherAssert.assertThat;
 
-@RunWith(MockitoJUnitRunner.class)
 public class TimeConversionTest {
 
     @InjectMocks
     TimeConversion timeConversion;
 
-    @Before
-    public void setup() {
-        MockitoAnnotations.initMocks(this);
+    @BeforeEach
+    public void setup(){
+        timeConversion = new TimeConversion();
     }
 
-    @Rule
-    public SystemOutResource sysOut = new SystemOutResource();
-
     @Test
+    @ExtendWith({SystemOutResource.class})
     public void solveQuestionOne(){
         String s = "07:05:45PM";
-
-        timeConversion.solveQuestion(s);
-
-        assertThat(sysOut.asString(), containsString("19:05:45"));
+        String result = timeConversion.solveQuestion(s);
+        Assertions.assertEquals(result, "19:05:45");
     }
 
     @Test
     public void solveQuestionTwo(){
         String s = "12:01:00PM";
-
-        timeConversion.solveQuestion(s);
-
-        assertThat(sysOut.asString(), containsString("12:01:00"));
+        String result = timeConversion.solveQuestion(s);
+        Assertions.assertEquals(result, "12:01:00");
     }
 
     @Test
     public void solveQuestionThree(){
         String s = "12:01:00AM";
-
-        timeConversion.solveQuestion(s);
-
-        assertThat(sysOut.asString(), containsString("00:01:00"));
+        String result = timeConversion.solveQuestion(s);
+        Assertions.assertEquals(result, "00:01:00");
     }
 }
