@@ -1,8 +1,9 @@
 import com.challenges.basic.TimeConversion;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.InjectMocks;
 
 public class TimeConversionTest {
@@ -15,25 +16,11 @@ public class TimeConversionTest {
         timeConversion = new TimeConversion();
     }
 
-    @Test
-    @ExtendWith({SystemOutResource.class})
-    public void solveQuestionOne(){
-        String s = "07:05:45PM";
-        String result = timeConversion.solveQuestion(s);
-        Assertions.assertEquals(result, "19:05:45");
-    }
-
-    @Test
-    public void solveQuestionTwo(){
-        String s = "12:01:00PM";
-        String result = timeConversion.solveQuestion(s);
-        Assertions.assertEquals(result, "12:01:00");
-    }
-
-    @Test
-    public void solveQuestionThree(){
-        String s = "12:01:00AM";
-        String result = timeConversion.solveQuestion(s);
-        Assertions.assertEquals(result, "00:01:00");
+    @ParameterizedTest
+    @CsvSource({"07:05:45PM,19:05:45", "12:01:00PM,12:01:00", "12:01:00AM,00:01:00", "01:00:00PM, 13:00:00"})
+    @DisplayName("convert hour AM/PM format to military (24-hour) time")
+    public void solveQuestion(String input, String expected){
+        String result = timeConversion.solveQuestion(input);
+        Assertions.assertEquals(expected, result);
     }
 }

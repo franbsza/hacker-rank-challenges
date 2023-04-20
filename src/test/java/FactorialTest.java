@@ -1,32 +1,26 @@
 import com.challenges.recursion.Factorial;
-import org.junit.Before;
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.InjectMocks;
-import org.mockito.MockitoAnnotations;
-import org.mockito.junit.MockitoJUnitRunner;
 
-@RunWith(MockitoJUnitRunner.class)
 public class FactorialTest {
 
     @InjectMocks
     Factorial factorial;
 
-    @Before
+    @BeforeEach
     public void setup(){
-        MockitoAnnotations.initMocks(this);
+        factorial = new Factorial();
     }
 
-    @Test
-    public void factorialFive(){
-        int result = factorial.solveQuestion(5);
-        Assertions.assertEquals(120 , result);
-    }
-
-    @Test
-    public void factorialZero(){
-        int result = factorial.solveQuestion(0);
-        Assertions.assertEquals(1 , result);
+    @ParameterizedTest
+    @CsvSource({"5,120", "0,1", "9,362880", "10,3628800"})
+    @DisplayName("calculator of factorial")
+    public void factorial(int input, int expected){
+        int result = factorial.solveQuestion(input);
+        Assertions.assertEquals(expected , result);
     }
 }
