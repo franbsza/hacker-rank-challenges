@@ -1,25 +1,15 @@
 import com.challenges.basic.MockDayTwo;
-import org.junit.Before;
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
-import org.mockito.MockitoAnnotations;
-import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@RunWith(MockitoJUnitRunner.class)
 public class MockDayTwoTest {
 
     @InjectMocks
     MockDayTwo mockDayTwo;
-
-    @Before
-    public void setup(){
-        MockitoAnnotations.initMocks(this);
-    }
 
     @Test
     public void executeTest(){
