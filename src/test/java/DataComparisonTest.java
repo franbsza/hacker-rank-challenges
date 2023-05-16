@@ -1,5 +1,6 @@
 import com.challenges.regex.DataComparison;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 
@@ -12,15 +13,19 @@ public class DataComparisonTest {
     @InjectMocks
     DataComparison dataComparison = new DataComparison();
 
-    @Test
-    public void executeTest(){
-        HashMap<String, String> data = new HashMap<>();
+    private HashMap<String, String> data;
+
+    @BeforeEach
+    void setup(){
+        data = new HashMap<>();
         data.put("yyyy@gmail.com", "Carl");
         data.put("zzzz@gmail.com", "Beth");
         data.put("vvvv@gmail.com", "Anne");
+    }
 
+    @Test
+    public void executeTest(){
         List<String> names = dataComparison.execute(data);
-
         Assertions.assertEquals(Arrays.asList("Anne", "Beth", "Carl"), names);
     }
 }
