@@ -2,7 +2,7 @@
 
 Welcome to hacker-rank-challenges repo!
 
-Here contains some solutions that I did from hacker rank challenges.
+This repository contains some solutions that I did to solve hackerrank challenges.
 I am using JUnit 5 to test it.
 
 This could always be upgrade, as I am passionate about challenges and I am continually learning something new.
